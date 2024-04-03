@@ -7,22 +7,22 @@ const TotalExpenses = () => {
   return (
     <div className="bg-orange-500 flex justify-between items-center p-5 rounded-xl mb-6">
       <div className="grid grid-cols-1">
-        <span className="text-white">Balanç total</span>
-        <span className="text-white">{totalExpensesWeek} €</span>
+        <span className="text-white text-xs">Balanç total</span>
+        <span className="text-white text-[25px]">{totalExpensesWeek} €</span>
       </div>
       <div className="flex gap-x-4 text-white">
         <span onClick={() => alert("left")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
+            className="h-4 w-4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            stroke-width="2"
+            strokeWidth={2}
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
