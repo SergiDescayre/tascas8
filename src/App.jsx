@@ -1,17 +1,10 @@
 
-
-import './App.css'
-import BarChart from './components/BarChart'
+import ExpensesChart from './pages/ExpensesChart'
 
 function App() {
 
-
   return (
-    <>
-   <h1 className="text-3xl font-bold">
-      <BarChart />
-    </h1>
-    </>
+      <ExpensesChart />
   )
 }
 
