@@ -28,7 +28,12 @@ import { useExpensesContext } from '../context/ExpensesContext';
 
 const BarChart = () =>  {
 
-    const { expenses,average,max } = useExpensesContext();
+    const { expenses,average, max, today } = useExpensesContext();
+    const expensesList = expenses.map(expense => expense.expense)
+
+    const colorDay = expenses.map(expense => {
+       return expense.day===today ? '#007cb7' : '#F97316'
+    })
     
     const days = ["Dl", "Dm", "Dc", "Dj", "Dv", "Ds", "Dg"];
     const colors = ['#F97316','#F97316','#F97316','#F97316','#F97316','#F97316','#007cb7']
@@ -46,6 +51,7 @@ const BarChart = () =>  {
                 min:0,
                 max:max + 10,
                 type:"linear",
+                
                 ticks: {
                     stepSize: average
                   }
@@ -61,15 +67,14 @@ const BarChart = () =>  {
         labels: days,
         datasets: [
             {
-                label: 'Gastos',
-                data: expenses,
-                backgroundColor: colors,
+               
+                data: expensesList,
+                backgroundColor: colorDay,
                 borderRadius: 6
             }
         ]
     };
-
-    return <Bar data={myData} options={myOptions} />
+return <Bar data={myData} options={myOptions} />
 }
 
 export default BarChart
