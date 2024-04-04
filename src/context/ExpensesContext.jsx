@@ -1,73 +1,130 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-const ExpensesContext = createContext()
+const ExpensesContext = createContext();
 
 const ContextProvider = ({ children }) => {
+  const weeks = {
+    weekOne: [
+      {
+        day: 1,
+        expense: 123,
+      },
+      {
+        day: 2,
+        expense: 234,
+      },
+      {
+        day: 3,
+        expense: 221,
+      },
+      {
+        day: 4,
+        expense: 222,
+      },
+      {
+        day: 5,
+        expense: 123,
+      },
+      {
+        day: 6,
+        expense: 345,
+      },
+      {
+        day: 7,
+        expense: 215,
+      },
+    ],
 
-    const [expenses, setExpenses] = useState(
-        [
-            
-            {
-                week: 1,
-                day: 1,
-                expense: 234
-            },
-            {
-                week: 1,
-                day: 2,
-                expense: 124
-            },
-            {
-                week: 1,
-                day: 3,
-                expense: 256
-            },
-            {
-                week: 1,
-                day: 4,
-                expense: 243
-            },
-            {
-                week: 1,
-                day: 5,
-                expense: 678
-            },
-            {
-                week: 1,
-                day: 6,
-                expense: 213
-            },
-            {
-                week: 1,
-                day: 7,
-                expense: 345
-            }
-        ])
+    weekTwo: [
+      {
+        day: 1,
+        expense: 324,
+      },
+      {
+        day: 2,
+        expense: 111,
+      },
+      {
+        day: 3,
+        expense: 324,
+      },
+      {
+        day: 4,
+        expense: 167,
+      },
+      {
+        day: 5,
+        expense: 231,
+      },
+      {
+        day: 6,
+        expense: 289,
+      },
+      {
+        day: 7,
+        expense: 216,
+      },
+    ],
+    weekTwo: [
+      {
+        day: 1,
+        expense: 332,
+      },
+      {
+        day: 2,
+        expense: 84,
+      },
+      {
+        day: 3,
+        expense: 123,
+      },
+      {
+        day: 4,
+        expense: 21,
+      },
+      {
+        day: 5,
+        expense: 234,
+      },
+      {
+        day: 6,
+        expense: 221,
+      },
+      {
+        day: 7,
+        expense: 123,
+      },
+    ],
+  };
 
-    const today = new Date().getDay()
-    console.log(today)
+  const today = new Date().getDay();
+  const [expenses, setExpenses] = useState(weeks.weekOne);
 
-    const [totalExpensesWeek, setTotalExpensesWeek] = useState(
-        expenses.reduce((a,b)=> a + b.expense,0)
-    )
+  const filterExpensesDay = expenses.filter((day) => day.day === today);
 
-    const average = (expenses.reduce((a, b) => a + b, 0)) / expenses.length
-    const max = Math.max(...expenses)
+  console.log(filterExpensesDay[0].expense);
 
-    return <ExpensesContext.Provider
-        value={
-            {
-                expenses,
-                average,
-                max,
-                totalExpensesWeek,
-                today
-            }
-        }>
-        {children}
+  const [totalExpensesWeek, setTotalExpensesWeek] = useState(
+    expenses.reduce((a, b) => a + b.expense, 0)
+  );
+
+  const [expensesDay, setExpensesDay] = useState(filterExpensesDay[0].expense);
+
+  return (
+    <ExpensesContext.Provider
+      value={{
+        expenses,
+        totalExpensesWeek,
+        today,
+        expensesDay,
+        setExpenses,
+      }}
+    >
+      {children}
     </ExpensesContext.Provider>
-}
+  );
+};
 
 export default ContextProvider;
 
-export const useExpensesContext = () => useContext(ExpensesContext)
+export const useExpensesContext = () => useContext(ExpensesContext);

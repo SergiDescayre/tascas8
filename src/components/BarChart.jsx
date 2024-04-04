@@ -23,6 +23,7 @@ ChartJS.register(
 );
 
 import { useExpensesContext } from '../context/ExpensesContext';
+import DayExpenses from './DayExpenses';
 
 
 
@@ -36,7 +37,6 @@ const BarChart = () =>  {
     })
     
     const days = ["Dl", "Dm", "Dc", "Dj", "Dv", "Ds", "Dg"];
-    const colors = ['#F97316','#F97316','#F97316','#F97316','#F97316','#F97316','#007cb7']
     
     const myOptions = {
         responsive : true,
@@ -49,16 +49,13 @@ const BarChart = () =>  {
         scales : {
             y : {
                 min:0,
-                max:max + 10,
-                type:"linear",
-                
-                ticks: {
-                    stepSize: average
-                  }
             },
             
             x: {
-                ticks: { color: '#808080'}
+                ticks: { 
+                    color: '#808080',
+                    
+                }
             },
         }
     };
@@ -74,7 +71,13 @@ const BarChart = () =>  {
             }
         ]
     };
-return <Bar data={myData} options={myOptions} />
+return(
+<div className='bg-gray-200 rounded-lg px-4 py-4 '>
+<Bar data={myData} options={myOptions} />
+<DayExpenses />
+</div>
+
+)
 }
 
 export default BarChart

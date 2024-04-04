@@ -4,7 +4,7 @@ import TotalExpenses from "../components/TotalExpenses"
 
 const ExpensesChart = () => {
   return (
-    <div className="p-10 mx-auto">
+    <div className="p-10 mx-auto w-[375px]">
         <Flags />
         <TotalExpenses />
         <BarChart />
