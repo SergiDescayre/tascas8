@@ -24,10 +24,13 @@ ChartJS.register(
 
 import { useExpensesContext } from '../context/ExpensesContext';
 import DayExpenses from './DayExpenses';
+import { useTranslation } from 'react-i18next';
 
 
 
 const BarChart = () =>  {
+
+    const {t} = useTranslation("global")
 
     const { expenses,average, max, today } = useExpensesContext();
     const expensesList = expenses.map(expense => expense.expense)
@@ -36,7 +39,7 @@ const BarChart = () =>  {
        return expense.day===today ? '#007cb7' : '#F97316'
     })
     
-    const days = ["Dl", "Dm", "Dc", "Dj", "Dv", "Ds", "Dg"];
+    const days = [t("monday"), t("tuesday"), t("wednesday"), t("thursday"), t("friday"), t("saturday"), t("sunday")];
     
     const myOptions = {
         responsive : true,

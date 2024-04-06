@@ -1,0 +1,12 @@
+{
+    "totalBalance": "Total balance",
+    "dailyExpenses": "Daily expenses",
+    "comparedYesterday" : "Compared yesterday",
+    "monday": "Mon",
+    "tuesday": "Tue",
+    "wednesday":"Wed",
+    "thursday":"Thur",
+    "friday": "Fri",
+    "saturday": "Sat",
+    "sunday":  "Sun"
+}

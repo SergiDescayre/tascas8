@@ -1,0 +1,12 @@
+{
+    "totalBalance": "Balanç total",
+    "dailyExpenses": "Despeses diaries",
+    "comparedYesterday" : "Respecte ahir",
+    "monday": "Dl",
+    "tuesday": "Dm",
+    "wednesday":"Dx",
+    "thursday":"Dj",
+    "friday": "Dv",
+    "saturday": "Ds",
+    "sunday":  "Dg"
+}
