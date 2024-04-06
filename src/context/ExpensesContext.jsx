@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { weeks } from "../data/weeks";
+
+
 const ExpensesContext = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -9,11 +11,13 @@ const ContextProvider = ({ children }) => {
   const [counter, setCounter] = useState(0)
   const [expenses, setExpenses] = useState(weeks[counter]);
   const [totalExpensesWeek, setTotalExpensesWeek] = useState(0);
+ 
 
   useEffect(()=> {
     setExpenses(weeks[counter]) 
     setTotalExpensesWeek(expensesWeek)
   },[counter])
+
 
  
   const filterExpensesDay = expenses.filter((day) => day.day === today);
@@ -54,6 +58,7 @@ const updateWeek = (mark) => {
         expensePercentage,
         setExpenses,
         updateWeek,
+  
       
       }}
     >

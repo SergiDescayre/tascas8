@@ -1,26 +1,39 @@
-import {useState} from "react"
-import Spain from "../assets/espana.png"
-import Catalunya from "../assets/catalunya.png"
-import UK from "../assets/uk.png"
-
-import { useTranslation } from "react-i18next"
+import { useState } from "react";
+import { languages } from "../data/languages";
+import { useTranslation } from "react-i18next";
+import ModeView from "./ModeView";
 
 const Flags = () => {
-    const {i18n} = useTranslation('global')
-    const [isActive, setIsActive] = useState(true)
+  const { i18n } = useTranslation("global");
 
-
-const handleClick = (lan) => {
-    i18n.changeLanguage(lan)
-}
-
-    return(
-        <div className="flex justify-end my-5 gap-x-3"> 
-           <img onClick={() => handleClick("en")} className="w-8 cursor-pointer" src={UK}  alt="spain" />
-           <img onClick={() => handleClick("es")} className="w-8 cursor-pointer" src={Spain}  alt="spain" />
-           <img onClick={() => handleClick("ca")} className="w-8 cursor-pointer" src={Catalunya}  alt="spain" />
+  const handleClick = (lan) => {
+    i18n.changeLanguage(lan);
+    languages.map((lang) =>
+      lang.language === lan ? (lang.isActive = true) : (lang.isActive = false)
+    );
+  };
+  return (
+    <>
+      <div className="flex items-center justify-between">
+        <ModeView />
+        <div className="flex justify-end my-5 gap-x-3 w-[125px]">
+          {languages.map((lang) => {
+            return (
+              <img
+                key={lang.language}
+                onClick={() => handleClick(lang.language)}
+                className={`w-8 cursor-pointer border-2 rounded-full ${
+                  lang.isActive ? "  border-[#007cb7] dark:border-[#F97316] " : ""
+                }`}
+                src={lang.img}
+                alt="spain"
+              />
+            );
+          })}
         </div>
-    )
-}
+      </div>
+    </>
+  );
+};
 
-export default Flags
+export default Flags;

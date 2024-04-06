@@ -8,7 +8,7 @@ const TotalExpenses = () => {
     const {t} = useTranslation("global")
 
   return (
-    <div className="bg-orange-500 flex justify-between items-center p-5 rounded-xl mb-6">
+    <div className="bg-orange-500 flex justify-between items-center p-5 rounded-xl mb-6 dark:bg-slate-950">
       <div className="grid grid-cols-1">
         <span className="text-white text-xs">{t("totalBalance")}</span>
         <span className="text-white text-[25px]">{totalExpensesWeek} €</span>
