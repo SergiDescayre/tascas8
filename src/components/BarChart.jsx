@@ -52,6 +52,7 @@ const BarChart = () =>  {
         scales : {
             y : {
                 min:0,
+                display: false
             },
             
             x: {
@@ -75,7 +76,7 @@ const BarChart = () =>  {
         ]
     };
 return(
-<div className='bg-gray-200 rounded-lg px-4 py-4 '>
+<div className='bg-gray-200 dark:bg-slate-950 dark:text-white rounded-lg px-4 py-4 '>
 <Bar data={myData} options={myOptions} />
 <DayExpenses />
 </div>

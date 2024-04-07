@@ -22,10 +22,10 @@ export const weeks = [
         },
         {
           day: 6,
-          expense: 345,
+          expense: 250,
         },
         {
-          day: 7,
+          day: 0,
           expense: 215,
         },
       ],
@@ -55,8 +55,8 @@ export const weeks = [
           expense: 289,
         },
         {
-          day: 7,
-          expense: 216,
+          day: 0,
+          expense: 123,
         },
       ],
       [
@@ -85,8 +85,8 @@ export const weeks = [
           expense: 154,
         },
         {
-          day: 7,
-          expense: 165,
+          day: 0,
+          expense: 111,
         },
       ]
 ]

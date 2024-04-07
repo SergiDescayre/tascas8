@@ -1,7 +1,8 @@
 {
-    "totalBalance": "Balance total",
+    "totalBalance": "Balance total semana:",
     "dailyExpenses": "Gastos diarios",
     "comparedYesterday" : "Respecto a ayer",
+    "week" : "Semana",
     "monday": "lu",
     "tuesday": "ma",
     "wednesday":"mi",

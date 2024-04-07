@@ -1,53 +1,53 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { weeks } from "../data/weeks";
 
-
 const ExpensesContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  
   const today = new Date().getDay();
-
-  const [counter, setCounter] = useState(0)
+ 
+  const [counter, setCounter] = useState(0);
   const [expenses, setExpenses] = useState(weeks[counter]);
-  const [totalExpensesWeek, setTotalExpensesWeek] = useState(0);
- 
-
-  useEffect(()=> {
-    setExpenses(weeks[counter]) 
-    setTotalExpensesWeek(expensesWeek)
-  },[counter])
 
 
- 
+
+  useEffect(() => {
+    setExpenses(weeks[counter]);
+  }, [counter]);
+
   const filterExpensesDay = expenses.filter((day) => day.day === today);
 
-  const filterExpensesYesterday = expenses.filter((day) => {
-    if(today === 1){
-      return day.day === 7
-    }
-    else  return day.day === today-1
-  })
+  const expensesDay = filterExpensesDay[0].expense;
 
-  const expensePercentage = Number(((filterExpensesDay[0].expense - filterExpensesYesterday[0].expense)/filterExpensesYesterday[0].expense)*100).toFixed(1)
+  const filterExpensesYesterday = expenses.filter(
+    (day) => {
+      if(today === 0){
+        return day.day === today + 6
+      }else {
+        return day.day === today - 1
+      }
+    }
+  );
+
+  const expensePercentage = Number(
+    ((filterExpensesDay[0].expense - filterExpensesYesterday[0].expense) /
+      filterExpensesYesterday[0].expense) *
+      100
+  ).toFixed(1);
 
   
-  const [expensesDay, setExpensesDay] = useState(filterExpensesDay[0].expense);
 
+  const totalExpensesWeek = expenses.reduce((a, b) => a + b.expense, 0);
 
-    const expensesWeek = expenses.reduce((a, b) => a + b.expense, 0)
+  const updateWeek = (mark) => {
+    if (mark === "left" && counter > 0) {
+      setCounter(counter - 1);
+    }
 
-
-const updateWeek = (mark) => {
-        if(mark==="left" && counter >0 ){
-            setCounter(counter - 1)
-        }
-
-        if(mark==="rigth" && counter <2 ){
-            setCounter(counter + 1)
-        }
-
-}
+    if (mark === "rigth" && counter < 2) {
+      setCounter(counter + 1);
+    }
+  };
   return (
     <ExpensesContext.Provider
       value={{
@@ -56,10 +56,9 @@ const updateWeek = (mark) => {
         today,
         expensesDay,
         expensePercentage,
+        counter,
         setExpenses,
         updateWeek,
-  
-      
       }}
     >
       {children}
