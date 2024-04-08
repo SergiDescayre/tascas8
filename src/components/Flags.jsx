@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { languages } from "../data/languages";
 import { useTranslation } from "react-i18next";
 import ModeView from "./ModeView";
@@ -13,7 +13,6 @@ const Flags = () => {
     );
   };
   return (
-    <>
       <div className="flex items-center justify-between">
         <ModeView />
         <div className="flex justify-end my-5 gap-x-3 w-[125px]">
@@ -26,13 +25,12 @@ const Flags = () => {
                   lang.isActive ? "  border-[#007cb7] dark:border-[#F97316] " : ""
                 }`}
                 src={lang.img}
-                alt="spain"
+                alt={lang.language}
               />
             );
           })}
         </div>
       </div>
-    </>
   );
 };
 

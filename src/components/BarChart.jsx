@@ -32,7 +32,7 @@ const BarChart = () =>  {
 
     const {t} = useTranslation("global")
 
-    const { expenses,average, max, today } = useExpensesContext();
+    const { expenses,today } = useExpensesContext();
     const expensesList = expenses.map(expense => expense.expense)
 
     const colorDay = expenses.map(expense => {
