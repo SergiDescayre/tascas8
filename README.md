@@ -1,8 +1,32 @@
-# React + Vite
+# ImporCode 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto dentro de la formación de ITAcademy
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de comenzar, asegúrate de tener instalado:
+
+- [Node.js](https://nodejs.org/) (v14.0.0 o superior)
+- npm (generalmente viene con Node.js)
+- [Git](https://git-scm.com/) (opcional, pero recomendado)
+
+## Instalación
+
+1. Clona este repositorio en tu máquina local usando `git clone`.
+2. Ve al directorio del proyecto: `cd nombre-del-proyecto`.
+3. Instala las dependencias usando npm:
+
+
+##
+```bash
+npm install
+```
+## Uso
+
+Una vez que hayas instalado todas las dependencias, puedes iniciar el servidor de desarrollo ejecutando el siguiente comando:
+
+```bash
+npm run dev
+```
+
+Este comando inicia el servidor de desarrollo. Abre http://localhost:5173 en tu navegador para ver la aplicación.
